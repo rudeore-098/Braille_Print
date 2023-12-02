@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/css.css') }}"/>
+</head>
+
+<body>
+    <h1>점자 번역기 번역기</h1>
+    <form method="post">
+
+    <section class="select">
+        <div class="selcet_input" name="source_language">
+            <p>입력할 언어를 선택해 주세요</p>
+            <input type="radio" name="source_language" value="ko" checked>Korea<br>
+            <input type="radio" name="source_language" value="en">English<br>
+        </div>
+
+        <div class="selcet_output" name="target_language">
+            <p>번역될 언어를 선택해 주세요</p>
+            <input type="radio" name="target_language" value="ko">Korea<br>
+            <input type="radio" name="target_language" value="en"checked>English<br>
+        </div>
+    </section>
+
+    <section class="box">
+        <div class="input">
+            <label for="input_text">
+                <textarea id="input_text" name="input_text" rows="10" cols="50" required>입력 텍스트</textarea>
+            </label>
+            <input class="trans_button" type="submit" name = "trans_button" value="Translate">
+        </div>
+
+        <div class="output">
+            <label for="output_text">
+                <textarea id="output_text" name="output_text" rows="10" cols="50" required>{{ translated_txt }}</textarea>
+            </label>
+            <button class="copy_button" onclick="copyToClipboard()">복사하기</button>
+            <input class="print_button" type="submit" name = "print_button" value="Braille_Print">
+        </div>
+    </section>
+        </form>
+{#    <p>  <br>{{ translated_txt }}<br> </p>#}
+<script src="{{ url_for('static', filename='js/js.js') }}"></script>
+</body>
+</html>
+
+
